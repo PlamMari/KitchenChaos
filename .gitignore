@@ -2,3 +2,7 @@ Library/*Cache
 Library/Artifacts
 Library/Bee/Cached*
 Library/Bee/artifacts*
+.vs
+.vsconfig
+Temp
+Logs
