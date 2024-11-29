@@ -5,4 +5,5 @@ Library/Bee/artifacts*
 .vs
 .vsconfig
 Temp
+Temp/UnityLockfile
 Logs

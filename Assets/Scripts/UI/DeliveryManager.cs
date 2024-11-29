@@ -16,6 +16,8 @@ public class DeliveryManager : MonoBehaviour
     private float spawnRecipeTimer; 
     private float spawnRecipeTimerMax = 4f;
     private int waitingRecipesMax = 4;
+    private int successfulRecipesAmount;
+
     
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class DeliveryManager : MonoBehaviour
 
             if(waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
             { //Has the same number of ingredients
-                bool plateContentsMatcheRecipe = true;
+                bool plateContentsMatchesRecipe = true;
                 foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
                 { //Cycling through all ingredients in the recipe
                     bool ingredientFound = false;
@@ -63,12 +65,14 @@ public class DeliveryManager : MonoBehaviour
                     }
                     if (!ingredientFound) 
                     { //THis recipe ingredient is not on the plate
-                        plateContentsMatcheRecipe = false;
+                        plateContentsMatchesRecipe = false;
                     }
                 }
 
-                if(plateContentsMatcheRecipe)
+                if(plateContentsMatchesRecipe)
                 { //Player delivered the correct recipe
+
+                    successfulRecipesAmount++;
                     
                     waitingRecipeSOList.RemoveAt(i);
 
@@ -87,6 +91,11 @@ public class DeliveryManager : MonoBehaviour
     public List<RecipeSO> GetWaitingRecipeSOList()
     {
         return waitingRecipeSOList;
+    }
+
+    public int GetSuccessfulRecipesAmount()
+    {
+        return successfulRecipesAmount;
     }
 }
 
