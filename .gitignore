@@ -7,3 +7,6 @@ Library/Bee/artifacts*
 Temp
 Temp/UnityLockfile
 Logs
+/Temp/UnityLockfile
+/Temp/__Backupscenes/0.backup
+/Temp/workerlic
